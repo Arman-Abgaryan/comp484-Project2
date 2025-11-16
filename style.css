@@ -6,6 +6,7 @@
   body {
     font-family: helvetica, arial, sans-serif;
     margin: 25px;
+    background-color: yellow;
   }
   
   main {
@@ -56,11 +57,13 @@
   .pet-image-container {
     float:left;
     padding:10px;
+    margin-top: 15px;
   }
   
   .dashboard {
     float:left;
     padding:20px;
+    margin-top: 70px;
   }
   
   .button-container {
@@ -74,9 +77,20 @@
       display: inline-block;
       float: left;
     font-size:15px;
-    background-color: #1e2835;
-    border-color: #404853;
+    border-radius: 15px;
+    background-color: #24A0ED;
+    border-color: #000000;
     cursor:pointer;
     background-image: linear-gradient(to bottom,rgba(246,246,246,.1)0%,rgba(30,40,53,0)66%);
-    color: #fafafa;
+    color: #ffffff;
+  }
+
+  /* Spin animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .spin-animation {
+    animation: spin 1s linear forwards;
   }

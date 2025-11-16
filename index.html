@@ -20,12 +20,17 @@
     <main>
       <section class="pet-image-container">
          <!-- Replace pet image with your own pet image -->
-        <img class="pet-image" src="https://cdn.glitch.com/3aa98e05-3216-497c-a251-210ae4713a83%2Fhound.jpg?1541715339220">
+         <img class="pet-image" src="images/Lucky.png">
+         <div id="petMessage" style="display: none; margin-top: 15px; font-weight: bold; font-size: 18px;"> </div>
       </section>
+
       <section class="dashboard">
         <div>Name: <strong><span class="name"></span></strong></div>
+
         <div>Weight: <strong><span class="weight"></span> pounds</strong></div>
+
         <div>Happiness: <strong><span class="happiness"></span> tail wags (per min)</strong></div>
+
         <div class="button-container">
           <button class="treat-button">
             Treat
@@ -36,8 +41,12 @@
           <button class="exercise-button">
             Exercise
           </button>
+          <button class="spin-button">
+            Spin
+          </button>
         </div>
       </section>
+
     </main>
 
     <!-- Your web-app is https, so your scripts need to be too -->
