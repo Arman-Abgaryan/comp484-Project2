@@ -13,13 +13,19 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
   
     // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
     var pet_info = {name: "Lucky", weight: 80, happiness: 50};
+
+    let messageTimeout = null;
   
     function clickedTreatButton() {
       // Increase pet happiness
       // Increase pet weight
-      pet_info.happiness += 3; // When treat button is pressed, happiness is increased by 10
-      pet_info.weight += 2; // When treat button is pressed, weight is increased by 5
+      pet_info.happiness += 3; // When treat button is pressed, happiness is increased by 3
+      pet_info.weight += 2; // When treat button is pressed, weight is increased by 2
 
+      clearTimeout(messageTimeout); // Ensures timers for buttons do not overlap
+
+      // Prints message "Yummy"
+      // Uses jQuery slideDown() and slideUp() to show a message when the button is clicked and then hide it again after a short delay.
       $("#petMessage").text("Yummy!").slideDown();
       setTimeout(() => $("#petMessage").slideUp(), 2500);
       checkAndUpdatePetInfoInHtml();
@@ -28,9 +34,13 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedPlayButton() {
       // Increase pet happiness
       // Decrease pet weight
-      pet_info.happiness += 4;
-      pet_info.weight -= 2;
+      pet_info.happiness += 4; // When play button is pressed, happiness is increased by 4
+      pet_info.weight -= 2; // When treat button is pressed, happiness is decreased by 2
 
+      clearTimeout(messageTimeout); // Ensures timers for buttons do not overlap
+
+      // Prints message "I love to play"
+      // Uses jQuery slideDown() and slideUp() to show a message when the button is clicked and then hide it again after a short delay.
       $("#petMessage").text("I love to play!").slideDown();
       setTimeout(() => $("#petMessage").slideUp(), 2500);
       checkAndUpdatePetInfoInHtml();
@@ -42,6 +52,10 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.happiness -= 5;
       pet_info.weight -= 5;
 
+      clearTimeout(messageTimeout); // Ensures timers for buttons do not overlap
+
+      // Prints message "Please, I don't want to exercise!"
+      // Uses jQuery slideDown() and slideUp() to show a message when the button is clicked and then hide it again after a short delay.
       $("#petMessage").text("Please, I don't want to exercise!").slideDown();
       setTimeout(() => $("#petMessage").slideUp(), 2500);
 
@@ -52,8 +66,19 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.happiness += 3;
       pet_info.weight -= 1;
 
+      // Restart spin animation
+      const pet = document.querySelector(".pet-image");
+      pet.classList.remove("spin-animation");
+      void pet.offsetWidth;
+      pet.classList.add("spin-animation.");
+
+      // Adds spin animation to image
       $(".pet-image").addClass("spin-animation");
 
+      clearTimeout(messageTimeout); // Ensures timers for buttons do not overlap
+
+      // Prints message that "Lucky is spinning"
+      // Uses jQuery slideDown() and slideUp() to show a message when the button is clicked and then hide it again after a short delay.
       $("#petMessage").text("Lucky is spinning!").slideDown();
 
       setTimeout(() => { $("#petMessage").slideUp(); }, 2500);
@@ -75,7 +100,6 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
         pet_info.happiness = 0;
       }
     }
-
     
     // Updates your HTML with the current values in your pet_info object
     function updatePetInfoInHtml() {
