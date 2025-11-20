@@ -70,10 +70,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       const pet = document.querySelector(".pet-image");
       pet.classList.remove("spin-animation");
       void pet.offsetWidth;
-      pet.classList.add("spin-animation.");
-
-      // Adds spin animation to image
-      $(".pet-image").addClass("spin-animation");
+      pet.classList.add("spin-animation"); // Start spin animation
 
       clearTimeout(messageTimeout); // Ensures timers for buttons do not overlap
 
